@@ -39,7 +39,7 @@ function downloadImage(url, dest) {
 }
 
 async function run() {
-  const dir = path.join(__dirname, 'assets', 'images');
+  const dir = path.join(__dirname, 'public', 'images');
   for (const item of searches) {
     try {
       console.log(`Searching for: ${item.term}`);
