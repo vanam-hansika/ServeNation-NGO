@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Photo Gallery — ServeNation NGO's collection of photos from education drives, food donations, tree planting, health camps, and community events." />
+  <title>Photo Gallery — ServeNation NGO</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+</head>
+<body>
+
+  <!-- ======= NAVBAR ======= -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon">🌿</div>
+        <div class="logo-text">
+          <span class="logo-name">ServeNation</span>
+          <span class="logo-tagline">Empowering Communities</span>
+        </div>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu" role="navigation">
+        <li><a href="index.html"     class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="about.html"     class="nav-link"><i class="fas fa-users"></i> About Us</a></li>
+        <li><a href="works.html"     class="nav-link"><i class="fas fa-hands-helping"></i> Our Works</a></li>
+        <li><a href="gallery.html"   class="nav-link active"><i class="fas fa-images"></i> Gallery</a></li>
+        <li><a href="contact.html"   class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+        <li><a href="volunteer.html" class="nav-cta"><i class="fas fa-heart"></i> Volunteer</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ======= PAGE HERO ======= -->
+  <section class="page-hero">
+    <div class="container page-hero-content">
+      <nav class="breadcrumb" aria-label="breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fas fa-chevron-right" style="font-size: 0.6rem;"></i>
+        <span>Gallery</span>
+      </nav>
+      <h1>Photo Gallery</h1>
+      <p>Moments of impact, captured in photographs — from classrooms to forests, kitchens to communities.</p>
+    </div>
+  </section>
+
+  <!-- ======= GALLERY ======= -->
+  <section class="section">
+    <div class="container">
+      <!-- Filter Buttons -->
+      <div class="gallery-filters" role="group" aria-label="Gallery filters">
+        <button class="filter-btn active" data-filter="all"         id="galleryAll">🌐 All</button>
+        <button class="filter-btn" data-filter="education"          id="galleryEdu">📚 Education</button>
+        <button class="filter-btn" data-filter="food"               id="galleryFood">🍱 Food</button>
+        <button class="filter-btn" data-filter="environment"        id="galleryEnv">🌿 Environment</button>
+        <button class="filter-btn" data-filter="events"             id="galleryEvents">🎉 Events</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="galleryGrid">
+
+        <!-- 1. Community Kitchen — community-kitchen.jpeg -->
+        <div class="gallery-item animate-fade-up" data-category="food"
+             data-caption="Community Kitchen — Volunteers distributing food and essentials to hundreds of families">
+          <img
+            src="assets/images/community-kitchen.jpeg"
+            alt="Indian volunteers distributing food packets and essential supplies to community members in need"
+            loading="lazy" />
+          <div class="gallery-overlay">
+            <p class="gallery-caption">🍱 Community Kitchen</p>
+          </div>
+        </div>
+
+        <!-- 2. River Clean-Up — environment.jpeg -->
+        <div class="gallery-item animate-fade-up" data-category="environment"
+             data-caption="River Clean-Up — Volunteers working together to restore our rivers and protect nature">
+          <img
+            src="assets/images/environment.jpeg"
+            alt="Group of ServeNation volunteers cleaning the environment as part of the HaritaBhoomi program"
+            loading="lazy" />
+          <div class="gallery-overlay">
+            <p class="gallery-caption">🌊 River Clean-Up</p>
+          </div>
+        </div>
+
+        <!-- 3. NGO Day Celebration — ngo-day-celebration.jpeg -->
+        <div class="gallery-item animate-fade-up" data-category="events"
+             data-caption="NGO Day Celebration — ServeNation community coming together to celebrate and grow">
+          <img
+            src="assets/images/ngo-day-celebration.jpeg"
+            alt="ServeNation NGO community event where volunteers and community members come together"
+            loading="lazy" />
+          <div class="gallery-overlay">
+            <p class="gallery-caption">🎉 NGO Day Celebration</p>
+          </div>
+        </div>
+
+        <!-- 4. COVID Relief Food — food-donation.jpeg -->
+        <div class="gallery-item animate-fade-up" data-category="food"
+             data-caption="COVID Relief Food — Distribution of essential ration kits to daily wage families during the pandemic">
+          <img
+            src="assets/images/food-donation.jpeg"
+            alt="NGO workers distributing food packets and essential ration supplies to people in need in India"
+            loading="lazy" />
+          <div class="gallery-overlay">
+            <p class="gallery-caption">🦠 COVID Relief Food</p>
+          </div>
+        </div>
+
+        <!-- 5. Climate Awareness Walk — climate-awareness-walk.jpeg -->
+        <div class="gallery-item animate-fade-up" data-category="environment"
+             data-caption="Climate Awareness Walk — Raising awareness for a cleaner, greener India">
+          <img
+            src="assets/images/climate-awareness-walk.jpeg"
+            alt="Environmental awareness drive by ServeNation NGO volunteers across the city"
+            loading="lazy" />
+          <div class="gallery-overlay">
+            <p class="gallery-caption">♻️ Climate Awareness Walk</p>
+          </div>
+        </div>
+
+        <!-- 6. River Clean-Up Camp — river-cleanup-camp.jpeg -->
+        <div class="gallery-item animate-fade-up" data-category="environment"
+             data-caption="River Clean-Up Camp — A weekend intensive cleanup drive at the riverbanks">
+          <img
+            src="assets/images/river-cleanup-camp.jpeg"
+            alt="Organized environmental cleanup camp by ServeNation volunteers working on a river bank"
+            loading="lazy" />
+          <div class="gallery-overlay">
+            <p class="gallery-caption">🧤 River Clean-Up Camp</p>
+          </div>
+        </div>
+
+        <!-- 7. Donation Camp — events.jpeg -->
+        <div class="gallery-item animate-fade-up" data-category="events"
+             data-caption="Donation Camp — Monthly collection drive for clothes, books, and winter essentials">
+          <img
+            src="assets/images/events.jpeg"
+            alt="ServeNation donation camp where community members contribute clothes, books and food essentials"
+            loading="lazy" />
+          <div class="gallery-overlay">
+            <p class="gallery-caption">🎁 Donation Camp</p>
+          </div>
+        </div>
+
+        <!-- 8. Child Education Drive — education.jpeg -->
+        <div class="gallery-item animate-fade-up" data-category="education"
+             data-caption="Child Education Drive — Empowering underprivileged children with books, pencils and smiles">
+          <img
+            src="assets/images/education.jpeg"
+            alt="Happy Indian children with school books and stationery at an NGO-supported free education center"
+            loading="lazy" />
+          <div class="gallery-overlay">
+            <p class="gallery-caption">📚 Child Education Drive</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image Preview">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+      <img class="lightbox-img" id="lightboxImg" src="" alt="Gallery image preview" />
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+  </div>
+
+  <!-- ======= FOOTER ======= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <div class="logo-icon">🌿</div>
+            <div class="logo-text">
+              <span class="logo-name">ServeNation</span>
+              <span class="logo-tagline">Empowering Communities</span>
+            </div>
+          </div>
+          <p>A registered NGO working across India since 2018.</p>
+          <div class="footer-social">
+            <a href="https://facebook.com/ServeNationNGO"  target="_blank" class="footer-social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com/ServeNationNGO" target="_blank" class="footer-social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/ServeNationNGO"   target="_blank" class="footer-social-icon" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"     class="footer-link"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="about.html"     class="footer-link"><i class="fas fa-chevron-right"></i> About Us</a></li>
+            <li><a href="works.html"     class="footer-link"><i class="fas fa-chevron-right"></i> Our Works</a></li>
+            <li><a href="gallery.html"   class="footer-link"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+            <li><a href="volunteer.html" class="footer-link"><i class="fas fa-chevron-right"></i> Volunteer</a></li>
+            <li><a href="contact.html"   class="footer-link"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Programs</h4>
+          <ul class="footer-links">
+            <li><a href="works.html" class="footer-link"><i class="fas fa-chevron-right"></i> Vidya Jyoti</a></li>
+            <li><a href="works.html" class="footer-link"><i class="fas fa-chevron-right"></i> Annadaan</a></li>
+            <li><a href="works.html" class="footer-link"><i class="fas fa-chevron-right"></i> HaritaBhoomi</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-links">
+            <li class="footer-link"><i class="fas fa-map-marker-alt"></i> 123 Social Street, Hyderabad</li>
+            <li><a href="tel:+919999999999" class="footer-link"><i class="fas fa-phone"></i> +91 99999 99999</a></li>
+            <li><a href="mailto:info@servenation.org" class="footer-link"><i class="fas fa-envelope"></i> info@servenation.org</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 ServeNation NGO. All rights reserved. | Made with ❤️ for a better India</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="script.js"  type="module"></script>
+  <script src="gallery.js" type="module"></script>
+</body>
+</html>

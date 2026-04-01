@@ -1,0 +1,21 @@
+{
+  "name": "servenation-ngo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "contact.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanam-hansika/ServeNation-NGO.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/vanam-hansika/ServeNation-NGO/issues"
+  },
+  "homepage": "https://github.com/vanam-hansika/ServeNation-NGO#readme"
+}
