@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About ServeNation NGO — Our story, vision, mission, core values, and passionate team dedicated to serving communities across India." />
+  <title>About Us — ServeNation NGO</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+
+  <style>
+    .story-layout { display: grid; grid-template-columns: 1fr; gap: var(--space-8); align-items: center; }
+    .story-img    { border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl); }
+    .story-img img { width: 100%; height: 300px; object-fit: cover; }
+
+    .story-text .section-badge { text-align: left; display: inline-flex; }
+    .story-text h2 { text-align: left; }
+    .story-text p  { color: var(--gray-600); line-height: 1.8; }
+
+    .milestone {
+      display: flex;
+      gap: var(--space-4);
+      align-items: flex-start;
+      margin-bottom: var(--space-5);
+    }
+    .milestone-year {
+      background: var(--gradient-primary);
+      color: var(--white);
+      font-weight: 800;
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .milestone-text h4 { margin-bottom: var(--space-1); font-size: var(--text-base); }
+    .milestone-text p  { font-size: var(--text-sm); color: var(--gray-500); margin: 0; }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+
+    .value-card {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: var(--space-5);
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      transition: transform var(--transition-base);
+    }
+    .value-card:hover { transform: translateY(-4px); }
+    .value-card .icon { font-size: 2rem; margin-bottom: var(--space-3); }
+    .value-card h4    { font-size: var(--text-base); margin-bottom: var(--space-2); }
+    .value-card p     { font-size: var(--text-sm); color: var(--gray-500); margin: 0; }
+
+    @media (min-width: 768px) {
+      .story-layout { grid-template-columns: 1fr 1fr; }
+      .story-img img  { height: 450px; }
+      .values-grid    { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    @media (min-width: 1024px) {
+      .story-layout { grid-template-columns: 5fr 7fr; gap: var(--space-12); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======= NAVBAR ======= -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon">🌿</div>
+        <div class="logo-text">
+          <span class="logo-name">ServeNation</span>
+          <span class="logo-tagline">Empowering Communities</span>
+        </div>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu" role="navigation">
+        <li><a href="index.html"     class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="about.html"     class="nav-link active"><i class="fas fa-users"></i> About Us</a></li>
+        <li><a href="works.html"     class="nav-link"><i class="fas fa-hands-helping"></i> Our Works</a></li>
+        <li><a href="gallery.html"   class="nav-link"><i class="fas fa-images"></i> Gallery</a></li>
+        <li><a href="contact.html"   class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+        <li><a href="volunteer.html" class="nav-cta"><i class="fas fa-heart"></i> Volunteer</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ======= PAGE HERO ======= -->
+  <section class="page-hero">
+    <div class="container page-hero-content">
+      <nav class="breadcrumb" aria-label="breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fas fa-chevron-right" style="font-size: 0.6rem;"></i>
+        <span>About Us</span>
+      </nav>
+      <h1>About ServeNation</h1>
+      <p>A passionate team of changemakers united by the belief that every act of service, however small, plants a seed of transformation.</p>
+    </div>
+  </section>
+
+  <!-- ======= OUR STORY ======= -->
+  <section class="section">
+    <div class="container">
+      <div class="story-layout">
+        <div class="story-img animate-fade-up">
+          <img src="assets/images/team-photo.png" alt="ServeNation team working together" loading="lazy" />
+        </div>
+        <div class="story-text animate-fade-up">
+          <span class="section-badge"><i class="fas fa-book-open"></i> Our Story</span>
+          <h2 style="margin-bottom: var(--space-4);">How It All Started</h2>
+          <p>ServeNation was born in 2018 from a simple idea: what if a small group of dedicated individuals could systematically address gaps left by the system? Three friends — a teacher, a doctor, and a software engineer — chose to invest their weekends to give back.</p>
+          <p>What began as a weekend tutoring session for 15 children in a Hyderabad slum has grown into a multi-city movement with over 120 active volunteers, three flagship programs, and measurable change in 40+ communities.</p>
+          <p>Today, we stand at the intersection of compassion and smart execution — because we believe good intentions must be backed by great systems.</p>
+
+          <div style="margin-top: var(--space-6);">
+            <div class="milestone">
+              <span class="milestone-year">2018</span>
+              <div class="milestone-text">
+                <h4>The First Step</h4>
+                <p>Tutoring sessions for 15 children in Hyderabad begin</p>
+              </div>
+            </div>
+            <div class="milestone">
+              <span class="milestone-year">2019</span>
+              <div class="milestone-text">
+                <h4>Annadaan Launched</h4>
+                <p>Weekly food drives feeding 200+ families every Sunday</p>
+              </div>
+            </div>
+            <div class="milestone">
+              <span class="milestone-year">2021</span>
+              <div class="milestone-text">
+                <h4>COVID Relief & Scale</h4>
+                <p>Distributed 10,000 meals and care kits during lockdown</p>
+              </div>
+            </div>
+            <div class="milestone">
+              <span class="milestone-year">2023</span>
+              <div class="milestone-text">
+                <h4>HaritaBhoomi Initiative</h4>
+                <p>3,000+ trees planted across 5 cities in single year</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= VISION & MISSION ======= -->
+  <section class="section" style="background: var(--gray-900);">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <span class="section-badge" style="background: rgba(34,197,94,0.2); color: var(--green-300);">🧭 Direction</span>
+        <h2 class="section-title" style="color: var(--white);">Vision & Mission</h2>
+        <p class="section-subtitle">Every action we take is guided by a clear north-star — a just India for all.</p>
+      </div>
+
+      <div class="mission-grid">
+        <div class="mission-card green animate-fade-up" style="background: rgba(255,255,255,0.05); border-color: var(--green-500);">
+          <div class="mission-card-icon">🔭</div>
+          <h3 style="color: var(--white);">Vision</h3>
+          <p style="color: rgba(255,255,255,0.7);">An India where every child learns, every person is nourished, and every community thrives in a clean and green environment — regardless of their birth circumstances.</p>
+        </div>
+        <div class="mission-card blue animate-fade-up" style="background: rgba(255,255,255,0.05); border-color: var(--blue-500);">
+          <div class="mission-card-icon">🎯</div>
+          <h3 style="color: var(--white);">Mission</h3>
+          <p style="color: rgba(255,255,255,0.7);">To design and deliver community-led programs in education, nutrition, and environmental action that produce measurable, lasting impact with full transparency and accountability.</p>
+        </div>
+        <div class="mission-card orange animate-fade-up" style="background: rgba(255,255,255,0.05); border-color: #f59e0b;">
+          <div class="mission-card-icon">🤝</div>
+          <h3 style="color: var(--white);">Approach</h3>
+          <p style="color: rgba(255,255,255,0.7);">We listen first. Every program is co-designed with community members. We scale only what works, track every outcome, and report transparently to donors and volunteers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= VALUES ======= -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <span class="section-badge"><i class="fas fa-gem"></i> Core Values</span>
+        <h2 class="section-title">What We Stand For</h2>
+        <p class="section-subtitle">These principles shape every decision we make, from program design to volunteer engagement.</p>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card animate-fade-up">
+          <div class="icon">🧡</div>
+          <h4>Compassion</h4>
+          <p>We lead with empathy, always centering the dignity of those we serve.</p>
+        </div>
+        <div class="value-card animate-fade-up">
+          <div class="icon">🔍</div>
+          <h4>Transparency</h4>
+          <p>Every rupee, every outcome, every decision — openly shared with stakeholders.</p>
+        </div>
+        <div class="value-card animate-fade-up">
+          <div class="icon">🌐</div>
+          <h4>Inclusivity</h4>
+          <p>We serve without bias of religion, caste, gender, or geography.</p>
+        </div>
+        <div class="value-card animate-fade-up">
+          <div class="icon">📊</div>
+          <h4>Impact-First</h4>
+          <p>We measure what matters and continuously improve based on evidence.</p>
+        </div>
+        <div class="value-card animate-fade-up">
+          <div class="icon">🤝</div>
+          <h4>Collaboration</h4>
+          <p>We partner with communities, corporates, and governments for systemic change.</p>
+        </div>
+        <div class="value-card animate-fade-up">
+          <div class="icon">🌱</div>
+          <h4>Sustainability</h4>
+          <p>Programs are designed to outlive our direct involvement.</p>
+        </div>
+        <div class="value-card animate-fade-up">
+          <div class="icon">⚡</div>
+          <h4>Urgency</h4>
+          <p>People are suffering now. We act with speed while remaining thoughtful.</p>
+        </div>
+        <div class="value-card animate-fade-up">
+          <div class="icon">🏆</div>
+          <h4>Excellence</h4>
+          <p>We hold ourselves to the highest standards in everything we do.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= TEAM ======= -->
+  <section class="section" style="background: var(--green-50);">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <span class="section-badge"><i class="fas fa-user-friends"></i> Our Team</span>
+        <h2 class="section-title">Meet the Changemakers</h2>
+        <p class="section-subtitle">Passionate professionals who chose purpose over passivity.</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card animate-fade-up">
+          <div class="team-avatar-placeholder">RA</div>
+          <h3 class="team-name">Ravi Anand</h3>
+          <p class="team-role">Founder & Executive Director</p>
+          <p class="team-bio">Former school teacher with 15+ years experience. Ravi leads strategy and partnerships for ServeNation.</p>
+        </div>
+        <div class="team-card animate-fade-up">
+          <div class="team-avatar-placeholder">DM</div>
+          <h3 class="team-name">Dr. Meera Nair</h3>
+          <p class="team-role">Co-Founder & Health Lead</p>
+          <p class="team-bio">A pediatrician who volunteers her Sundays running free health camps in rural Telangana.</p>
+        </div>
+        <div class="team-card animate-fade-up">
+          <div class="team-avatar-placeholder">KS</div>
+          <h3 class="team-name">Kiran Sharma</h3>
+          <p class="team-role">Technology & Operations Lead</p>
+          <p class="team-bio">Software engineer by day, systems builder for social good by nature. Manages our digital infrastructure.</p>
+        </div>
+        <div class="team-card animate-fade-up">
+          <div class="team-avatar-placeholder">PJ</div>
+          <h3 class="team-name">Priya Joshi</h3>
+          <p class="team-role">Education Program Director</p>
+          <p class="team-bio">Curriculum designer who built Vidya Jyoti from ground up. Empowers 2,500+ children annually.</p>
+        </div>
+        <div class="team-card animate-fade-up">
+          <div class="team-avatar-placeholder">VR</div>
+          <h3 class="team-name">Venkat Rao</h3>
+          <p class="team-role">Volunteer Coordinator</p>
+          <p class="team-bio">Community organizer who recruits, trains, and retains our 120+ volunteer network across 5 cities.</p>
+        </div>
+        <div class="team-card animate-fade-up">
+          <div class="team-avatar-placeholder">AL</div>
+          <h3 class="team-name">Ananya Latha</h3>
+          <p class="team-role">Communications & Social Media</p>
+          <p class="team-bio">Storyteller and digital marketer amplifying real community impact stories to inspire action.</p>
+        </div>
+        <div class="team-card animate-fade-up">
+          <div class="team-avatar-placeholder">SM</div>
+          <h3 class="team-name">Suresh Mahato</h3>
+          <p class="team-role">Environment Program Lead</p>
+          <p class="team-bio">Environmentalist driving HaritaBhoomi. Has personally coordinated the planting of 2,000+ trees.</p>
+        </div>
+        <div class="team-card animate-fade-up">
+          <div class="team-avatar-placeholder">NC</div>
+          <h3 class="team-name">Nisha Chandra</h3>
+          <p class="team-role">Fundraising & Finance</p>
+          <p class="team-bio">CA by profession, purpose-driven professional ensuring every donation creates maximum impact.</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="volunteer.html" class="btn btn-primary">
+          <i class="fas fa-user-plus"></i> Join Our Team
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= IMPACT STRIP ======= -->
+  <section class="impact-strip">
+    <div class="container">
+      <div class="impact-grid">
+        <div class="impact-item">
+          <div class="impact-icon">📅</div>
+          <div class="impact-number" data-counter data-target="6" data-suffix=" Years">0</div>
+          <div class="impact-label">Of Service</div>
+        </div>
+        <div class="impact-item">
+          <div class="impact-icon">👥</div>
+          <div class="impact-number" data-counter data-target="120" data-suffix="+">0</div>
+          <div class="impact-label">Volunteers</div>
+        </div>
+        <div class="impact-item">
+          <div class="impact-icon">🏘️</div>
+          <div class="impact-number" data-counter data-target="40" data-suffix="+">0</div>
+          <div class="impact-label">Communities</div>
+        </div>
+        <div class="impact-item">
+          <div class="impact-icon">🌟</div>
+          <div class="impact-number" data-counter data-target="25" data-suffix="+">0</div>
+          <div class="impact-label">Programs Run</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= FOOTER ======= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <div class="logo-icon">🌿</div>
+            <div class="logo-text">
+              <span class="logo-name">ServeNation</span>
+              <span class="logo-tagline">Empowering Communities</span>
+            </div>
+          </div>
+          <p>A registered NGO working across India since 2018.</p>
+          <div class="footer-social">
+            <a href="https://facebook.com/ServeNationNGO"  target="_blank" class="footer-social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com/ServeNationNGO" target="_blank" class="footer-social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/ServeNationNGO"   target="_blank" class="footer-social-icon" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"     class="footer-link"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="about.html"     class="footer-link"><i class="fas fa-chevron-right"></i> About Us</a></li>
+            <li><a href="works.html"     class="footer-link"><i class="fas fa-chevron-right"></i> Our Works</a></li>
+            <li><a href="gallery.html"   class="footer-link"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+            <li><a href="volunteer.html" class="footer-link"><i class="fas fa-chevron-right"></i> Volunteer</a></li>
+            <li><a href="contact.html"   class="footer-link"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Programs</h4>
+          <ul class="footer-links">
+            <li><a href="works.html" class="footer-link"><i class="fas fa-chevron-right"></i> Vidya Jyoti</a></li>
+            <li><a href="works.html" class="footer-link"><i class="fas fa-chevron-right"></i> Annadaan</a></li>
+            <li><a href="works.html" class="footer-link"><i class="fas fa-chevron-right"></i> HaritaBhoomi</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-links">
+            <li class="footer-link"><i class="fas fa-map-marker-alt"></i> 123 Social Street, Hyderabad</li>
+            <li><a href="tel:+919999999999" class="footer-link"><i class="fas fa-phone"></i> +91 99999 99999</a></li>
+            <li><a href="mailto:info@servenation.org" class="footer-link"><i class="fas fa-envelope"></i> info@servenation.org</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 ServeNation NGO. All rights reserved. | Made with ❤️ for a better India</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="script.js" type="module"></script>
+</body>
+</html>

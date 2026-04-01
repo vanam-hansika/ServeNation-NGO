@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Volunteer with ServeNation NGO — Register to join our education, nutrition, and environment programs across India." />
+  <title>Volunteer Registration — ServeNation NGO</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+
+  <style>
+    .volunteer-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      align-items: start;
+    }
+
+    .volunteer-info {
+      background: var(--gradient-hero);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-8);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .volunteer-info::before {
+      content: '';
+      position: absolute;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+      top: -80px; right: -80px;
+    }
+
+    .volunteer-info h2 {
+      color: var(--white);
+      margin-bottom: var(--space-4);
+    }
+
+    .volunteer-info p {
+      color: rgba(255,255,255,0.75);
+      font-size: var(--text-sm);
+      line-height: 1.8;
+    }
+
+    .volunteer-perk {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      background: rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: var(--space-3) var(--space-4);
+      margin-bottom: var(--space-3);
+    }
+
+    .volunteer-perk .icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .volunteer-perk-text h4 {
+      color: var(--white);
+      font-size: var(--text-sm);
+      margin-bottom: 2px;
+    }
+
+    .volunteer-perk-text p {
+      font-size: var(--text-xs);
+      color: rgba(255,255,255,0.6);
+      margin: 0;
+    }
+
+    @media (min-width: 1024px) {
+      .volunteer-layout { grid-template-columns: 5fr 7fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======= NAVBAR ======= -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon">🌿</div>
+        <div class="logo-text">
+          <span class="logo-name">ServeNation</span>
+          <span class="logo-tagline">Empowering Communities</span>
+        </div>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu" role="navigation">
+        <li><a href="index.html"     class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="about.html"     class="nav-link"><i class="fas fa-users"></i> About Us</a></li>
+        <li><a href="works.html"     class="nav-link"><i class="fas fa-hands-helping"></i> Our Works</a></li>
+        <li><a href="gallery.html"   class="nav-link"><i class="fas fa-images"></i> Gallery</a></li>
+        <li><a href="contact.html"   class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+        <li><a href="volunteer.html" class="nav-cta active"><i class="fas fa-heart"></i> Volunteer</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ======= PAGE HERO ======= -->
+  <section class="page-hero">
+    <div class="container page-hero-content">
+      <nav class="breadcrumb" aria-label="breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fas fa-chevron-right" style="font-size: 0.6rem;"></i>
+        <span>Volunteer</span>
+      </nav>
+      <h1>Become a Volunteer</h1>
+      <p>Your time and skills can change someone's entire world. Join our growing family of 120+ changemakers across India.</p>
+    </div>
+  </section>
+
+  <!-- ======= VOLUNTEER FORM SECTION ======= -->
+  <section class="section">
+    <div class="container">
+      <div class="volunteer-layout">
+
+        <!-- Left Info Panel -->
+        <div class="volunteer-info animate-fade-up">
+          <h2>Why Volunteer With Us?</h2>
+          <p style="margin-bottom: var(--space-6);">ServeNation volunteers are the heart of everything we do. We make volunteering meaningful, flexible, and professionally rewarding.</p>
+
+          <div class="volunteer-perk">
+            <div class="icon">🎓</div>
+            <div class="volunteer-perk-text">
+              <h4>Free Training</h4>
+              <p>Orientation, skill workshops, and field training provided to all volunteers.</p>
+            </div>
+          </div>
+
+          <div class="volunteer-perk">
+            <div class="icon">🤝</div>
+            <div class="volunteer-perk-text">
+              <h4>Community Network</h4>
+              <p>Connect with 120+ like-minded changemakers across 5 cities.</p>
+            </div>
+          </div>
+
+          <div class="volunteer-perk">
+            <div class="icon">📜</div>
+            <div class="volunteer-perk-text">
+              <h4>Official Certificate</h4>
+              <p>Receive a digitally signed volunteer certificate after 3 months of service.</p>
+            </div>
+          </div>
+
+          <div class="volunteer-perk">
+            <div class="icon">⏰</div>
+            <div class="volunteer-perk-text">
+              <h4>Flexible Timing</h4>
+              <p>Weekend-only, weekday, remote, and on-field roles available.</p>
+            </div>
+          </div>
+
+          <div class="volunteer-perk">
+            <div class="icon">🌍</div>
+            <div class="volunteer-perk-text">
+              <h4>Real Impact</h4>
+              <p>See the tangible difference you make with monthly impact reports.</p>
+            </div>
+          </div>
+
+          <div style="margin-top: var(--space-6); padding-top: var(--space-6); border-top: 1px solid rgba(255,255,255,0.1);">
+            <p style="font-size: var(--text-sm); color: rgba(255,255,255,0.6);">📞 Questions? Call us:</p>
+            <a href="tel:+919999999999" style="color: var(--green-300); font-weight: 700; font-size: var(--text-lg);">+91 99999 99999</a>
+          </div>
+        </div>
+
+        <!-- Right Form -->
+        <div class="animate-fade-up" id="volunteerFormContainer">
+          <div class="form-section">
+            <h2 style="margin-bottom: var(--space-2);">Registration Form</h2>
+            <p class="text-muted" style="margin-bottom: var(--space-6);">All fields marked <span style="color:#ef4444">*</span> are required. We'll respond within 48 hours.</p>
+
+            <form id="volunteerForm" novalidate>
+
+              <!-- Name -->
+              <div class="form-group">
+                <label for="vName" class="form-label">Full Name <span class="required">*</span></label>
+                <input type="text" id="vName" name="name" class="form-input"
+                       placeholder="e.g. Priya Sharma" autocomplete="name" required />
+                <p class="form-error" id="vNameError" role="alert"><i class="fas fa-exclamation-circle"></i> </p>
+              </div>
+
+              <!-- Email -->
+              <div class="form-group">
+                <label for="vEmail" class="form-label">Email Address <span class="required">*</span></label>
+                <input type="email" id="vEmail" name="email" class="form-input"
+                       placeholder="e.g. priya@email.com" autocomplete="email" required />
+                <p class="form-error" id="vEmailError" role="alert"><i class="fas fa-exclamation-circle"></i> </p>
+              </div>
+
+              <!-- Phone -->
+              <div class="form-group">
+                <label for="vPhone" class="form-label">Mobile Number <span class="required">*</span></label>
+                <input type="tel" id="vPhone" name="phone" class="form-input"
+                       placeholder="e.g. 9876543210" autocomplete="tel" required
+                       inputmode="numeric" maxlength="10" />
+                <p class="form-error" id="vPhoneError" role="alert"><i class="fas fa-exclamation-circle"></i> </p>
+              </div>
+
+              <!-- Area of Interest -->
+              <div class="form-group">
+                <label for="vArea" class="form-label">Area of Interest <span class="required">*</span></label>
+                <div class="form-select-wrap">
+                  <select id="vArea" name="area" class="form-select" required>
+                    <option value="">— Select an area —</option>
+                    <option value="education">📚 Education & Teaching</option>
+                    <option value="nutrition">🍱 Food Donation & Nutrition</option>
+                    <option value="environment">🌿 Environment & Tree Planting</option>
+                    <option value="health">❤️ Health Camps & Medical Aid</option>
+                    <option value="technology">💻 Technology & Digital Skills</option>
+                    <option value="marketing">📱 Content, Social Media & PR</option>
+                    <option value="fundraising">💰 Fundraising & Events</option>
+                    <option value="general">🤝 General Volunteering</option>
+                  </select>
+                </div>
+                <p class="form-error" id="vAreaError" role="alert"><i class="fas fa-exclamation-circle"></i> </p>
+              </div>
+
+              <!-- Message -->
+              <div class="form-group">
+                <label for="vMessage" class="form-label">Tell Us About Yourself <span class="required">*</span></label>
+                <textarea id="vMessage" name="message" class="form-textarea" rows="4"
+                          placeholder="Share your skills, motivation, and availability (weekdays/weekends)…" required></textarea>
+                <p class="form-error" id="vMessageError" role="alert"><i class="fas fa-exclamation-circle"></i> </p>
+              </div>
+
+              <!-- Consent -->
+              <div class="form-group" style="display: flex; gap: var(--space-3); align-items: flex-start;">
+                <input type="checkbox" id="vConsent" style="margin-top: 3px; width: 18px; height: 18px; accent-color: var(--green-500);" required />
+                <label for="vConsent" style="font-size: var(--text-sm); color: var(--gray-600); cursor: pointer;">
+                  I agree to the <a href="#" style="color: var(--green-600); font-weight: 600;">Privacy Policy</a> and consent to ServeNation storing my information for volunteer coordination purposes.
+                </label>
+              </div>
+
+              <button type="submit" id="volunteerSubmitBtn" class="btn btn-primary w-full btn-lg">
+                <i class="fas fa-paper-plane"></i> Submit Registration
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Success Message (hidden by default) -->
+        <div class="success-message" id="volunteerSuccess" role="status" aria-live="polite">
+          <div class="success-icon">🎉</div>
+          <h3>Registration Successful!</h3>
+          <p class="text-muted">Thank you for registering as a ServeNation volunteer! Our team will review your application and contact you within <strong>48 hours</strong>.</p>
+          <p class="text-muted" style="margin-top: var(--space-4);">In the meantime, follow us on social media to stay connected with our community.</p>
+          <div class="social-icons" style="margin-top: var(--space-6); justify-content: center; display: flex; gap: var(--space-3);">
+            <a href="https://instagram.com/ServeNationNGO" target="_blank" class="social-icon instagram" style="width: 44px; height: 44px;" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/ServeNationNGO"  target="_blank" class="social-icon facebook"  style="width: 44px; height: 44px;" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/919999999999"           target="_blank" class="social-icon whatsapp"  style="width: 44px; height: 44px;" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+          <a href="index.html" class="btn btn-primary mt-6" style="margin-top: var(--space-6);">
+            <i class="fas fa-home"></i> Back to Home
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= FOOTER ======= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <div class="logo-icon">🌿</div>
+            <div class="logo-text">
+              <span class="logo-name">ServeNation</span>
+              <span class="logo-tagline">Empowering Communities</span>
+            </div>
+          </div>
+          <p>A registered NGO working across India since 2018.</p>
+          <div class="footer-social">
+            <a href="https://facebook.com/ServeNationNGO"  target="_blank" class="footer-social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com/ServeNationNGO" target="_blank" class="footer-social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/ServeNationNGO"   target="_blank" class="footer-social-icon" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"     class="footer-link"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="about.html"     class="footer-link"><i class="fas fa-chevron-right"></i> About Us</a></li>
+            <li><a href="works.html"     class="footer-link"><i class="fas fa-chevron-right"></i> Our Works</a></li>
+            <li><a href="gallery.html"   class="footer-link"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+            <li><a href="volunteer.html" class="footer-link"><i class="fas fa-chevron-right"></i> Volunteer</a></li>
+            <li><a href="contact.html"   class="footer-link"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Programs</h4>
+          <ul class="footer-links">
+            <li><a href="works.html" class="footer-link"><i class="fas fa-chevron-right"></i> Vidya Jyoti</a></li>
+            <li><a href="works.html" class="footer-link"><i class="fas fa-chevron-right"></i> Annadaan</a></li>
+            <li><a href="works.html" class="footer-link"><i class="fas fa-chevron-right"></i> HaritaBhoomi</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-links">
+            <li class="footer-link"><i class="fas fa-map-marker-alt"></i> 123 Social Street, Hyderabad</li>
+            <li><a href="tel:+919999999999" class="footer-link"><i class="fas fa-phone"></i> +91 99999 99999</a></li>
+            <li><a href="mailto:info@servenation.org" class="footer-link"><i class="fas fa-envelope"></i> info@servenation.org</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 ServeNation NGO. All rights reserved. | Made with ❤️ for a better India</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="script.js" type="module"></script>
+  <script src="volunteer.js" type="module"></script>
+</body>
+</html>

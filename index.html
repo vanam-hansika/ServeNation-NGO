@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ServeNation NGO — Empowering communities through education, nutrition, and environmental sustainability. Join us in making a difference." />
+  <meta name="keywords" content="ServeNation, NGO, India, volunteer, education, food donation, environment" />
+  <meta name="author" content="ServeNation NGO" />
+  <meta property="og:title" content="ServeNation NGO — Serve with Purpose" />
+  <meta property="og:description" content="Empowering communities through education, nutrition, and sustainability." />
+  <meta property="og:type" content="website" />
+  <title>ServeNation NGO — Serve with Purpose</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+
+  <style>
+    /* Home-page specific styles */
+    .testimonials { background: var(--gray-900); padding: var(--space-12) 0; }
+    .testimonials .section-title { color: var(--white); }
+    .testimonials .section-badge { background: rgba(34,197,94,0.2); color: var(--green-300); }
+    .testimonials .section-subtitle { color: rgba(255,255,255,0.6); }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+
+    .testimonial-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      backdrop-filter: blur(8px);
+    }
+
+    .testimonial-quote {
+      font-size: var(--text-sm);
+      color: rgba(255,255,255,0.75);
+      line-height: 1.8;
+      margin-bottom: var(--space-4);
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--gradient-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--white);
+      font-size: var(--text-sm);
+      flex-shrink: 0;
+    }
+
+    .testimonial-name {
+      font-weight: 700;
+      color: var(--white);
+      font-size: var(--text-sm);
+    }
+
+    .testimonial-role {
+      font-size: var(--text-xs);
+      color: var(--green-400);
+    }
+
+    .stars {
+      color: #f59e0b;
+      font-size: var(--text-sm);
+      margin-bottom: var(--space-3);
+    }
+
+    .cta-banner {
+      background: var(--gradient-primary);
+      padding: var(--space-12) 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      top: -150px; right: -100px;
+    }
+
+    .cta-banner::after {
+      content: '';
+      position: absolute;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      bottom: -100px; left: -50px;
+    }
+
+    .cta-banner-content { position: relative; z-index: 1; }
+    .cta-banner h2 { color: var(--white); font-size: var(--text-2xl); margin-bottom: var(--space-4); }
+    .cta-banner p  { color: rgba(255,255,255,0.85); margin-bottom: var(--space-6); }
+
+    .cta-btns {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .testimonial-grid { grid-template-columns: repeat(3, 1fr); }
+      .cta-banner h2    { font-size: var(--text-3xl); }
+      .cta-btns         { flex-direction: row; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======= NAVBAR ======= -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon">🌿</div>
+        <div class="logo-text">
+          <span class="logo-name">ServeNation</span>
+          <span class="logo-tagline">Empowering Communities</span>
+        </div>
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-menu" id="navMenu" role="navigation">
+        <li><a href="index.html"     class="nav-link" data-page="home"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="about.html"     class="nav-link" data-page="about"><i class="fas fa-users"></i> About Us</a></li>
+        <li><a href="works.html"     class="nav-link" data-page="works"><i class="fas fa-hands-helping"></i> Our Works</a></li>
+        <li><a href="gallery.html"   class="nav-link" data-page="gallery"><i class="fas fa-images"></i> Gallery</a></li>
+        <li><a href="contact.html"   class="nav-link" data-page="contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        <li><a href="volunteer.html" class="nav-cta"><i class="fas fa-heart"></i> Volunteer</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ======= HERO ======= -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <img src="assets/images/ngo-hero.jpeg" alt="ServeNation NGO — Empowering communities together" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-leaf"></i> Making India Better, One Step at a Time
+      </div>
+      <h1 class="hero-title">
+        Together We <span class="highlight">Serve</span>,<br />
+        Together We <span class="highlight">Nation</span> Build
+      </h1>
+      <p class="hero-subtitle">
+        ServeNation is a grassroots NGO dedicated to uplifting communities through 
+        education, nutrition, and environmental sustainability. Every action counts — 
+        yours included.
+      </p>
+      <div class="hero-actions">
+        <a href="volunteer.html" class="btn btn-primary btn-lg">
+          <i class="fas fa-heart"></i> Become a Volunteer
+        </a>
+        <a href="works.html" class="btn btn-outline btn-lg">
+          <i class="fas fa-arrow-right"></i> Our Impact
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="number" data-counter data-target="5000" data-suffix="+">0</div>
+          <div class="label">Lives Impacted</div>
+        </div>
+        <div class="hero-stat">
+          <div class="number" data-counter data-target="120" data-suffix="+">0</div>
+          <div class="label">Volunteers</div>
+        </div>
+        <div class="hero-stat">
+          <div class="number" data-counter data-target="25" data-suffix="+">0</div>
+          <div class="label">Projects</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= IMPACT STRIP ======= -->
+  <section class="impact-strip">
+    <div class="container">
+      <div class="impact-grid">
+        <div class="impact-item animate-fade-up">
+          <div class="impact-icon">📚</div>
+          <div class="impact-number" data-counter data-target="2500" data-suffix="+">0</div>
+          <div class="impact-label">Children Educated</div>
+        </div>
+        <div class="impact-item animate-fade-up">
+          <div class="impact-icon">🍱</div>
+          <div class="impact-number" data-counter data-target="15000" data-suffix="+">0</div>
+          <div class="impact-label">Meals Distributed</div>
+        </div>
+        <div class="impact-item animate-fade-up">
+          <div class="impact-icon">🌳</div>
+          <div class="impact-number" data-counter data-target="3000" data-suffix="+">0</div>
+          <div class="impact-label">Trees Planted</div>
+        </div>
+        <div class="impact-item animate-fade-up">
+          <div class="impact-icon">🏘️</div>
+          <div class="impact-number" data-counter data-target="40" data-suffix="+">0</div>
+          <div class="impact-label">Villages Reached</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= MISSION ======= -->
+  <section class="section" id="mission">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <span class="section-badge"><i class="fas fa-bullseye"></i> Our Purpose</span>
+        <h2 class="section-title">Why ServeNation Exists</h2>
+        <p class="section-subtitle">We believe every individual deserves dignity, opportunity, and a healthy planet.</p>
+      </div>
+
+      <div class="mission-grid">
+        <div class="mission-card green animate-fade-up">
+          <div class="mission-card-icon">🎯</div>
+          <h3>Our Mission</h3>
+          <p class="text-muted">To empower underprivileged communities in India through holistic programs in education, nutrition, health, and environmental conservation — creating lasting, self-sustaining impact.</p>
+        </div>
+        <div class="mission-card blue animate-fade-up">
+          <div class="mission-card-icon">🔭</div>
+          <h3>Our Vision</h3>
+          <p class="text-muted">A truly equal India where every child can learn, every family is fed, and our natural environment thrives — powered by compassionate citizens who serve together.</p>
+        </div>
+        <div class="mission-card orange animate-fade-up">
+          <div class="mission-card-icon">💡</div>
+          <h3>Our Values</h3>
+          <p class="text-muted">Integrity, inclusivity, compassion, and accountability guide everything we do. We listen to communities, act transparently, and measure real impact — not just numbers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= FEATURED PROJECTS ======= -->
+  <section class="section" style="background: var(--green-50);" id="projects">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <span class="section-badge"><i class="fas fa-star"></i> Featured Projects</span>
+        <h2 class="section-title">Programs Changing Lives</h2>
+        <p class="section-subtitle">Each project is built with community, shaped by need, and measured by impact.</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <article class="project-card animate-fade-up">
+          <div class="project-card-image-wrap">
+            <img class="project-card-image" src="assets/images/project-education.png" alt="Education project — children in classroom" loading="lazy" />
+            <div class="project-card-overlay">
+              <span class="badge badge-blue">Education</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <h3 class="project-card-title">📚 Vidya Jyoti — Education Drive</h3>
+            <p class="project-card-desc">Free tutoring, school supplies, and digital literacy classes for underprivileged children aged 6–16 in rural districts.</p>
+            <div class="project-impact"><i class="fas fa-chart-line"></i> 2,500+ children enrolled</div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card animate-fade-up">
+          <div class="project-card-image-wrap">
+            <img class="project-card-image" src="assets/images/project-food.png" alt="Food donation project" loading="lazy" />
+            <div class="project-card-overlay">
+              <span class="badge badge-orange">Nutrition</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <h3 class="project-card-title">🍱 Annadaan — Food Donation Drive</h3>
+            <p class="project-card-desc">Weekly community kitchens and emergency food relief for families in need, partnering with local temples and corporates.</p>
+            <div class="project-impact"><i class="fas fa-chart-line"></i> 15,000+ meals served</div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card animate-fade-up">
+          <div class="project-card-image-wrap">
+            <img class="project-card-image" src="assets/images/project-environment.png" alt="Environment project — tree planting" loading="lazy" />
+            <div class="project-card-overlay">
+              <span class="badge badge-green">Environment</span>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <h3 class="project-card-title">🌱 HaritaBhoomi — Green Earth</h3>
+            <p class="project-card-desc">Massive tree-planting drives, clean-up campaigns, and awareness programs to protect local ecosystems and green cover.</p>
+            <div class="project-impact"><i class="fas fa-chart-line"></i> 3,000+ trees planted</div>
+          </div>
+        </article>
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="works.html" class="btn btn-primary">View All Projects <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= TESTIMONIALS ======= -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <span class="section-badge">❤️ Community Voices</span>
+        <h2 class="section-title">What Our Community Says</h2>
+        <p class="section-subtitle">Real stories of real change — from the people who experienced it.</p>
+      </div>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card animate-fade-up">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-quote">"ServeNation's Vidya Jyoti program changed my son's life. He now goes to school with confidence and dreams of becoming an engineer. I am forever grateful."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">PR</div>
+            <div>
+              <div class="testimonial-name">Priya Reddy</div>
+              <div class="testimonial-role">Parent, Telangana</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card animate-fade-up">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-quote">"Volunteering with the food drive team was the most fulfilling experience. The organization is professionally run and every rupee is accounted for transparently."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AK</div>
+            <div>
+              <div class="testimonial-name">Arjun Kumar</div>
+              <div class="testimonial-role">Corporate Volunteer, Hyderabad</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card animate-fade-up">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-quote">"We planted 500 trees in one day with ServeNation's HaritaBhoomi drive. It felt amazing to contribute to a greener future for our children."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SM</div>
+            <div>
+              <div class="testimonial-name">Sunita Mishra</div>
+              <div class="testimonial-role">Environment Activist, Pune</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= CTA BANNER ======= -->
+  <section class="cta-banner" id="cta">
+    <div class="container cta-banner-content">
+      <h2>Ready to Make a Difference?</h2>
+      <p>Join hundreds of changemakers who volunteer, donate, and advocate for a better India every day.</p>
+      <div class="cta-btns">
+        <a href="volunteer.html" class="btn" style="background: var(--white); color: var(--green-700); font-weight: 700;">
+          <i class="fas fa-hands-helping"></i> Volunteer Now
+        </a>
+        <a href="contact.html" class="btn btn-outline">
+          <i class="fas fa-envelope"></i> Get in Touch
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= SOCIAL STRIP ======= -->
+  <section class="social-strip">
+    <div class="container">
+      <p class="text-center text-white mb-6" style="font-size: var(--text-lg); font-weight: 600; color: rgba(255,255,255,0.8);">
+        Follow Our Journey
+      </p>
+      <div class="social-icons">
+        <a href="https://facebook.com/ServeNationNGO"  target="_blank" rel="noopener" class="social-icon facebook"  aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/ServeNationNGO"   target="_blank" rel="noopener" class="social-icon twitter"   aria-label="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://instagram.com/ServeNationNGO" target="_blank" rel="noopener" class="social-icon instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://youtube.com/@ServeNationNGO"  target="_blank" rel="noopener" class="social-icon youtube"   aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://linkedin.com/company/servenation" target="_blank" rel="noopener" class="social-icon linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://wa.me/919999999999"           target="_blank" rel="noopener" class="social-icon whatsapp"  aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= FOOTER ======= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <div class="logo-icon">🌿</div>
+            <div class="logo-text">
+              <span class="logo-name">ServeNation</span>
+              <span class="logo-tagline">Empowering Communities</span>
+            </div>
+          </div>
+          <p>A registered NGO working across India to empower communities through education, nutrition, and environmental sustainability since 2018.</p>
+          <div class="footer-social">
+            <a href="https://facebook.com/ServeNationNGO"  target="_blank" class="footer-social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com/ServeNationNGO" target="_blank" class="footer-social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/ServeNationNGO"   target="_blank" class="footer-social-icon" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://youtube.com/@ServeNationNGO"  target="_blank" class="footer-social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"     class="footer-link"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="about.html"     class="footer-link"><i class="fas fa-chevron-right"></i> About Us</a></li>
+            <li><a href="works.html"     class="footer-link"><i class="fas fa-chevron-right"></i> Our Works</a></li>
+            <li><a href="gallery.html"   class="footer-link"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+            <li><a href="volunteer.html" class="footer-link"><i class="fas fa-chevron-right"></i> Volunteer</a></li>
+            <li><a href="contact.html"   class="footer-link"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Programs -->
+        <div>
+          <h4 class="footer-heading">Our Programs</h4>
+          <ul class="footer-links">
+            <li><a href="works.html" class="footer-link"><i class="fas fa-chevron-right"></i> Vidya Jyoti</a></li>
+            <li><a href="works.html" class="footer-link"><i class="fas fa-chevron-right"></i> Annadaan</a></li>
+            <li><a href="works.html" class="footer-link"><i class="fas fa-chevron-right"></i> HaritaBhoomi</a></li>
+            <li><a href="works.html" class="footer-link"><i class="fas fa-chevron-right"></i> Health Camps</a></li>
+            <li><a href="works.html" class="footer-link"><i class="fas fa-chevron-right"></i> Skill Training</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="footer-heading">Contact Us</h4>
+          <ul class="footer-links">
+            <li class="footer-link"><i class="fas fa-map-marker-alt"></i> 123 Social Street, Hyderabad, 500001</li>
+            <li><a href="tel:+919999999999" class="footer-link"><i class="fas fa-phone"></i> +91 99999 99999</a></li>
+            <li><a href="mailto:info@servenation.org" class="footer-link"><i class="fas fa-envelope"></i> info@servenation.org</a></li>
+            <li class="footer-link" style="color: var(--green-400)"><i class="fas fa-clock"></i> Mon–Sat: 9AM – 6PM</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2024 ServeNation NGO. All rights reserved. | Registered under Societies Registration Act, 1860 | 
+        <a href="#" style="color: var(--green-400)">Privacy Policy</a> · 
+        <a href="#" style="color: var(--green-400)">Terms of Use</a></p>
+        <p style="margin-top: 4px;">Made with ❤️ for a better India</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="script.js" type="module"></script>
+</body>
+</html>
