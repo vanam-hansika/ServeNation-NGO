@@ -10,61 +10,73 @@ const loadingIndicator = document.getElementById('loadingIndicator');
 const errorIndicator = document.getElementById('errorIndicator');
 const totalBadge = document.getElementById('totalBadge');
 
-// Protect Route
+console.log("🛠️ Admin Dashboard Script Loaded");
+
+// 1. Session Guard
 onAuthStateChanged(auth, (user) => {
-  if (!user || user.email !== ADMIN_EMAIL) {
-    // Redirect if not logged in or not admin
-    window.location.href = "admin-login.html";
+  if (user) {
+    if (user.email === ADMIN_EMAIL) {
+      console.log("✅ Admin access verified:", user.email);
+      dashboardContent.style.display = 'block';
+      loadVolunteers();
+    } else {
+      console.error("❌ Access Denied: User is NOT authorized admin.");
+      // Forced sign out for non-admins trying to stay logged in
+      signOut(auth).then(() => {
+        window.location.href = "admin-login.html";
+      });
+    }
   } else {
-    // Authenticated: show content and load data
-    dashboardContent.style.display = 'block';
-    loadVolunteers();
+    console.log("ℹ️ No active session. Redirecting to login...");
+    window.location.href = "admin-login.html";
   }
 });
 
-// Logout
+// 2. Logout Handler
 logoutBtn.addEventListener('click', async () => {
   try {
+    console.log("👋 Logging out...");
     await signOut(auth);
     window.location.href = "admin-login.html";
-  } catch (error) {
-    console.error("Error signing out: ", error);
+  } catch (err) {
+    console.error("❌ Logout error:", err);
   }
 });
 
-// Fetch and display data
+// 3. Data Fetching
 async function loadVolunteers() {
   if (!db) {
+    console.error("❌ Firestore DB not initialized.");
     showError();
     return;
   }
 
   try {
-    // Query volunteers ordered by creation date descending
+    console.log("📡 Fetching volunteers...");
     const q = query(collection(db, "volunteers"), orderBy("createdAt", "desc"));
     const querySnapshot = await getDocs(q);
     
-    tableBody.innerHTML = ''; // clear table
+    tableBody.innerHTML = '';
     let count = 0;
 
     querySnapshot.forEach((docSnap) => {
       count++;
       const data = docSnap.data();
       
-      // format date if available
       let dateString = "N/A";
       if (data.createdAt && typeof data.createdAt.toDate === 'function') {
-        dateString = data.createdAt.toDate().toLocaleDateString();
+        const d = data.createdAt.toDate();
+        dateString = d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
       }
 
       const tr = document.createElement('tr');
       tr.innerHTML = `
-        <td style="color: var(--gray-500); font-size: var(--text-sm);">${dateString}</td>
+        <td style="color: var(--gray-500); font-size: var(--text-xs);">${dateString}</td>
         <td style="font-weight: 600;">${escapeHTML(data.name || '—')}</td>
-        <td><a href="mailto:${escapeHTML(data.email || '')}" style="color: var(--blue-600);">${escapeHTML(data.email || '—')}</a></td>
+        <td><a href="mailto:${escapeHTML(data.email || '')}" class="text-green-600">${escapeHTML(data.email || '—')}</a></td>
         <td>${escapeHTML(data.mobile || '—')}</td>
         <td><span class="badge-area">${escapeHTML(data.areaOfInterest || '—').toUpperCase()}</span></td>
-        <td style="font-size: var(--text-sm); max-width: 300px; overflow:hidden; text-overflow: ellipsis; white-space: nowrap;" title="${escapeHTML(data.about || '')}">
+        <td style="max-width: 300px; overflow:hidden; text-overflow: ellipsis; white-space: nowrap;" title="${escapeHTML(data.about || '')}">
           ${escapeHTML(data.about || '—')}
         </td>
       `;
@@ -72,17 +84,19 @@ async function loadVolunteers() {
     });
 
     totalBadge.textContent = `Total: ${count}`;
-
     loadingIndicator.style.display = 'none';
+
     if (count > 0) {
       volunteersTable.style.display = 'table';
     } else {
-      loadingIndicator.innerHTML = '<p>No volunteers registered yet.</p>';
+      loadingIndicator.innerHTML = '<p>No volunteers have registered yet.</p>';
       loadingIndicator.style.display = 'block';
     }
 
-  } catch (error) {
-    console.error("Error loading volunteers: ", error);
+    console.log("🎉 Loaded", count, "volunteers.");
+
+  } catch (err) {
+    console.error("❌ Fetch error:", err);
     showError();
   }
 }
@@ -93,7 +107,8 @@ function showError() {
 }
 
 function escapeHTML(str) {
-  return str.replace(/[&<>'"]/g, 
+  if (!str) return "";
+  return String(str).replace(/[&<>'"]/g, 
     tag => ({
       '&': '&amp;',
       '<': '&lt;',

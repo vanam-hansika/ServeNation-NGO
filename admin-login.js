@@ -6,39 +6,48 @@ const passwordInput = document.getElementById('adminPassword');
 const loginBtn = document.getElementById('loginBtn');
 const loginError = document.getElementById('loginError');
 
-// Hardcoded admin email as requested
 const ADMIN_EMAIL = "admin@servenation.org";
 
-// Check if already logged in
+console.log("🔒 Admin Login Script Loaded");
+
+// 1. Initial State Check
 onAuthStateChanged(auth, (user) => {
-  if (user && user.email === ADMIN_EMAIL) {
-    window.location.href = "admin-dashboard.html";
+  if (user) {
+    console.log("👤 User already logged in:", user.email);
+    if (user.email === ADMIN_EMAIL) {
+      console.log("✅ Admin verified. Redirecting...");
+      window.location.href = "admin-dashboard.html";
+    } else {
+      console.warn("⚠️ Logged in user is NOT the designated admin.");
+    }
+  } else {
+    console.log("ℹ️ No active session found.");
   }
 });
 
 function setButtonLoading(isLoading) {
   if (isLoading) {
     loginBtn.disabled = true;
-    loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Authenticating...';
-    loginBtn.style.opacity = '0.7';
-    loginBtn.style.cursor = 'not-allowed';
+    loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Checking...';
   } else {
     loginBtn.disabled = false;
     loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Login to Dashboard';
-    loginBtn.style.opacity = '1';
-    loginBtn.style.cursor = 'pointer';
   }
 }
 
+// 2. Handle Login Submit
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
+  
   const email = emailInput.value.trim();
   const password = passwordInput.value;
 
+  console.log("🚀 Login attempt for:", email);
   loginError.style.display = 'none';
 
-  if (email !== ADMIN_EMAIL) {
-    loginError.querySelector('span').textContent = 'Invalid credentials';
+  // Hard restriction check
+  if (email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
+    loginError.querySelector('span').textContent = 'Access Denied: Only designated admin allowed.';
     loginError.style.display = 'block';
     return;
   }
@@ -46,11 +55,21 @@ form.addEventListener('submit', async (e) => {
   setButtonLoading(true);
 
   try {
-    await signInWithEmailAndPassword(auth, email, password);
-    // Success will be handled by onAuthStateChanged listener above
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    console.log("🎯 Sign-in successful for:", userCredential.user.email);
+    // onAuthStateChanged will handle redirection
   } catch (err) {
-    console.error("Login failed:", err);
-    loginError.querySelector('span').textContent = 'Invalid credentials';
+    console.error("❌ Login Error Code:", err.code);
+    console.error("❌ Login Error Msg:", err.message);
+    
+    let userMsg = "Invalid credentials. Please try again.";
+    if (err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password') {
+       userMsg = "Incorrect email or password.";
+    } else if (err.code === 'auth/too-many-requests') {
+       userMsg = "Too many failed attempts. Try again later.";
+    }
+    
+    loginError.querySelector('span').textContent = userMsg;
     loginError.style.display = 'block';
     setButtonLoading(false);
   }
