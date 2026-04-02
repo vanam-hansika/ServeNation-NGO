@@ -71,8 +71,6 @@ let allImages = [...initialStaticImages];
 // ---- 1. Fetch Gallery Data ----
 async function loadGallery() {
   if (!db) {
-    console.warn("Firestore not ready. Showing static images only.");
-    renderGallery(allImages);
     if (galleryLoading) galleryLoading.style.display = 'none';
     return;
   }
@@ -81,33 +79,30 @@ async function loadGallery() {
     const q = query(collection(db, "gallery"), orderBy("createdAt", "desc"));
     const querySnapshot = await getDocs(q);
     
-    // Dynamic images pushed before static ones, or just mixed all together
     let dynamicImages = [];
     querySnapshot.forEach(docSnap => {
       dynamicImages.push({
         id: docSnap.id,
-        category: 'events', // Defaulting uploaded to events for now
+        category: 'events',
         caption: 'NGO Activity',
         ...docSnap.data()
       });
     });
 
-    // Merge Dynamic (Newest first) with Static
     allImages = [...dynamicImages, ...initialStaticImages];
-
     renderGallery(allImages);
-    
-    if (galleryLoading) {
-      galleryLoading.style.display = 'none';
-    }
-
   } catch (err) {
     console.error("Error fetching gallery:", err);
-    if (galleryLoading) {
-      galleryLoading.innerHTML = '<p style="color: red;">Failed to load gallery images.</p>';
-    }
+  } finally {
+    if (galleryLoading) galleryLoading.style.display = 'none';
   }
 }
+
+// Show static images immediately
+renderGallery(allImages);
+
+// Start fetching from Firestore
+loadGallery();
 
 // ---- 2. Render Gallery Items ----
 function renderGallery(images) {
@@ -195,4 +190,4 @@ filterBtns.forEach(btn => {
 });
 
 // Start the show
-loadGallery();
+// Note: loadGallery() is now called above after initial render renderGallery(allImages)
