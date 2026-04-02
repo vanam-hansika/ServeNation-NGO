@@ -91,6 +91,22 @@
     </header>
 
     <main class="container">
+      
+      <!-- Upload Section -->
+      <div class="table-container" style="margin-bottom: var(--space-8); padding: var(--space-6);">
+        <h2 style="font-size: var(--text-xl); margin-bottom: var(--space-4);">Upload to Gallery</h2>
+        <form id="uploadForm" style="display: flex; gap: var(--space-4); align-items: flex-end; flex-wrap: wrap;">
+          <div class="form-group" style="margin-bottom: 0; flex: 1; min-width: 250px;">
+            <label for="imageUpload" class="form-label">Select Image (jpg, png)</label>
+            <input type="file" id="imageUpload" class="form-input" accept="image/png, image/jpeg" style="padding: 10px;" required />
+          </div>
+          <button type="submit" id="uploadBtn" class="btn btn-primary" style="height: 48px;">
+            <i class="fas fa-upload"></i> Upload Image
+          </button>
+        </form>
+        <p id="uploadStatus" style="display: none; margin-top: var(--space-4); font-weight: 600;"></p>
+      </div>
+
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-4);">
         <h2 style="font-size: var(--text-2xl);">Volunteer Registrations</h2>
         <span id="totalBadge" class="badge-area" style="font-size: var(--text-sm);">Total: 0</span>

@@ -8,6 +8,8 @@ import { getFirestore, collection, addDoc, serverTimestamp, getDocs, orderBy, qu
   from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut }
   from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL }
+  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
 // -------------------------------------------------------------------
 // Firebase Config
@@ -23,19 +25,21 @@ const firebaseConfig = {
 };
 // -------------------------------------------------------------------
 
-let app, db, auth;
+let app, db, auth, storage;
 
 try {
   app  = initializeApp(firebaseConfig);
   db   = getFirestore(app);
   auth = getAuth(app);
+  storage = getStorage(app);
   console.log("✅ Firebase connected successfully.");
 } catch (err) {
   console.error("❌ Firebase init error:", err.message);
 }
 
-export { db, auth, collection, getDocs, query, orderBy,
-         signInWithEmailAndPassword, onAuthStateChanged, signOut };
+export { db, auth, storage, collection, addDoc, serverTimestamp, getDocs, orderBy, query,
+         signInWithEmailAndPassword, onAuthStateChanged, signOut,
+         ref, uploadBytesResumable, getDownloadURL };
 
 // -----------------------------------------------
 // Helper: Save volunteer registration
