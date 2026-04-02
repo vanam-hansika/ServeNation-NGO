@@ -6,12 +6,74 @@ const galleryLoading = document.getElementById('galleryLoading');
 const filterBtns = document.querySelectorAll('.filter-btn');
 
 // ---- State ----
-let allImages = [];
+// Preload the original static gallery images
+const initialStaticImages = [
+  {
+    id: 'static-1',
+    imageUrl: '/assets/images/community-kitchen.jpeg',
+    category: 'food',
+    caption: 'Community Kitchen — Volunteers distributing food and essentials',
+    createdAt: new Date('2024-01-01')
+  },
+  {
+    id: 'static-2',
+    imageUrl: '/assets/images/environment.jpeg',
+    category: 'environment',
+    caption: 'River Clean-Up — Volunteers restoring nature',
+    createdAt: new Date('2024-01-02')
+  },
+  {
+    id: 'static-3',
+    imageUrl: '/assets/images/ngo-day-celebration.jpeg',
+    category: 'events',
+    caption: 'NGO Day Celebration — Community assembly',
+    createdAt: new Date('2024-01-03')
+  },
+  {
+    id: 'static-4',
+    imageUrl: '/assets/images/food-donation.jpeg',
+    category: 'food',
+    caption: 'COVID Relief Food — Distribution of ration kits',
+    createdAt: new Date('2024-01-04')
+  },
+  {
+    id: 'static-5',
+    imageUrl: '/assets/images/climate-awareness-walk.jpeg',
+    category: 'environment',
+    caption: 'Climate Awareness Walk — Greener India',
+    createdAt: new Date('2024-01-05')
+  },
+  {
+    id: 'static-6',
+    imageUrl: '/assets/images/river-cleanup-camp.jpeg',
+    category: 'environment',
+    caption: 'River Clean-Up Camp — Intensive cleanup drive',
+    createdAt: new Date('2024-01-06')
+  },
+  {
+    id: 'static-7',
+    imageUrl: '/assets/images/events.jpeg',
+    category: 'events',
+    caption: 'Donation Camp — Clothes and book collection',
+    createdAt: new Date('2024-01-07')
+  },
+  {
+    id: 'static-8',
+    imageUrl: '/assets/images/education.jpeg',
+    category: 'education',
+    caption: 'Child Education Drive — Empowering underprivileged children',
+    createdAt: new Date('2024-01-08')
+  }
+];
+
+let allImages = [...initialStaticImages];
 
 // ---- 1. Fetch Gallery Data ----
 async function loadGallery() {
   if (!db) {
-    console.warn("Firestore not ready.");
+    console.warn("Firestore not ready. Showing static images only.");
+    renderGallery(allImages);
+    if (galleryLoading) galleryLoading.style.display = 'none';
     return;
   }
 
@@ -19,13 +81,19 @@ async function loadGallery() {
     const q = query(collection(db, "gallery"), orderBy("createdAt", "desc"));
     const querySnapshot = await getDocs(q);
     
-    allImages = [];
+    // Dynamic images pushed before static ones, or just mixed all together
+    let dynamicImages = [];
     querySnapshot.forEach(docSnap => {
-      allImages.push({
+      dynamicImages.push({
         id: docSnap.id,
+        category: 'events', // Defaulting uploaded to events for now
+        caption: 'NGO Activity',
         ...docSnap.data()
       });
     });
+
+    // Merge Dynamic (Newest first) with Static
+    allImages = [...dynamicImages, ...initialStaticImages];
 
     renderGallery(allImages);
     
@@ -64,16 +132,16 @@ function renderGallery(images) {
     // We don't have categories in requirements for dynamic images yet, 
     // but the UI has filter buttons. Let's default them to 'events' or just hide them if not needed.
     // For now, we'll keep it simple as the user didn't specify categories for upload.
-    item.setAttribute('data-category', 'events'); 
+    item.setAttribute('data-category', imgData.category || 'events'); 
     
     item.innerHTML = `
-      <img src="${imgData.imageUrl}" alt="NGO activity image" loading="lazy" />
+      <img src="${imgData.imageUrl}" alt="${imgData.caption || 'NGO activity image'}" loading="lazy" />
       <div class="gallery-overlay">
-        <p class="gallery-caption">NGO Activity</p>
+        <p class="gallery-caption">${imgData.caption || 'NGO Activity'}</p>
       </div>
     `;
 
-    item.addEventListener('click', () => openLightbox(imgData.imageUrl, "ServeNation Activity Image"));
+    item.addEventListener('click', () => openLightbox(imgData.imageUrl, imgData.caption || "ServeNation Activity Image"));
     galleryGrid.appendChild(item);
   });
 }
