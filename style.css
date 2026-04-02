@@ -1480,5 +1480,273 @@ p:last-child { margin-bottom: 0; }
   .page-hero h1 { font-size: var(--text-5xl); }
 }
 
-/* Active page highlight */
-.nav-link[data-page] { }
+/* Active page highlight — intentionally empty anchor for future use */
+/* ================================================
+   MOBILE RESPONSIVE IMPROVEMENTS (max-width: 768px)
+   ================================================ */
+@media (max-width: 767px) {
+
+  /* --- Container --- */
+  .container {
+    padding: 0 var(--space-4);
+  }
+
+  /* --- Typography Scale Down --- */
+  h1 { font-size: clamp(1.6rem, 6vw, 2.25rem); }
+  h2 { font-size: clamp(1.3rem, 5vw, 1.875rem); }
+  h3 { font-size: clamp(1.1rem, 4vw, 1.25rem); }
+
+  /* --- Hero Section --- */
+  .hero {
+    min-height: 100svh;
+    padding-top: var(--nav-height);
+    align-items: flex-start;
+  }
+
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.4;
+  }
+
+  .hero-content {
+    padding: var(--space-8) 0 var(--space-12);
+    width: 100%;
+  }
+
+  .hero-title {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+    line-height: 1.2;
+    margin-bottom: var(--space-4);
+  }
+
+  .hero-subtitle {
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-6);
+    max-width: 100%;
+  }
+
+  .hero-badge {
+    font-size: var(--text-xs);
+    padding: var(--space-1) var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+
+  /* --- Hero Buttons --- */
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* --- Hero Stats Row --- */
+  .hero-stats {
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: var(--space-8);
+  }
+
+  .hero-stat .number {
+    font-size: var(--text-xl);
+  }
+
+  .hero-stat .label {
+    font-size: 0.65rem;
+  }
+
+  /* --- Sections --- */
+  .section {
+    padding: var(--space-10) 0;
+  }
+
+  .section-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .section-title {
+    font-size: clamp(1.3rem, 5vw, 1.875rem);
+  }
+
+  .section-subtitle {
+    font-size: var(--text-sm);
+  }
+
+  /* --- Impact Strip --- */
+  .impact-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .impact-number {
+    font-size: var(--text-2xl);
+  }
+
+  /* --- Mission Cards --- */
+  .mission-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .mission-card {
+    padding: var(--space-5);
+  }
+
+  /* --- Project Cards --- */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .project-card-image {
+    height: 200px;
+  }
+
+  /* --- Gallery --- */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2);
+  }
+
+  .gallery-filters {
+    gap: var(--space-2);
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: var(--space-2);
+    scrollbar-width: none;
+  }
+
+  .gallery-filters::-webkit-scrollbar { display: none; }
+
+  .filter-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-size: var(--text-xs);
+    padding: var(--space-1) var(--space-3);
+    min-height: 36px;
+  }
+
+  /* --- Testimonials (if any) --- */
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Team Grid --- */
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  /* --- Footer --- */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .footer {
+    padding: var(--space-10) 0 var(--space-6);
+  }
+
+  /* --- Forms --- */
+  .form-section {
+    padding: var(--space-5);
+  }
+
+  /* --- Buttons --- */
+  .btn-lg {
+    padding: 0.85rem 1.5rem;
+    font-size: var(--text-base);
+  }
+
+  /* --- Page Hero (inner pages) --- */
+  .page-hero {
+    padding: calc(var(--nav-height) + var(--space-8)) 0 var(--space-8);
+    text-align: center;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(1.6rem, 6vw, 2.25rem);
+    margin-bottom: var(--space-3);
+  }
+
+  .page-hero p {
+    font-size: var(--text-sm);
+    padding: 0 var(--space-2);
+  }
+
+  /* --- Admin Layout --- */
+  table {
+    font-size: var(--text-sm);
+  }
+
+  th, td {
+    padding: var(--space-2) var(--space-2);
+  }
+
+  /* Prevent columns from overflowing */
+  .table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* --- Contact Layout --- */
+  .contact-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* --- Map --- */
+  .map-container {
+    height: 250px;
+  }
+
+  /* --- Prevent horizontal scroll --- */
+  html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+}
+
+/* ================================================
+   SMALL MOBILE (max-width: 400px)
+   ================================================ */
+@media (max-width: 400px) {
+  .hero-title {
+    font-size: clamp(1.5rem, 8vw, 2rem);
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stats {
+    gap: var(--space-3);
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================================================
+   ENSURE animatedfade-up images always show
+   (Fallback: if JS doesn't trigger IntersectionObserver fast enough)
+   ================================================ */
+@media (max-width: 767px) {
+  /* Give images a head-start visibility on mobile */
+  .gallery-item.animate-fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
