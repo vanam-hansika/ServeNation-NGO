@@ -92,8 +92,9 @@ if (!form) {
 
       setButtonLoading(submitBtn, false);
 
-      // 3. Show popup alert and clear form as requested
-      alert("Registration Successful");
+      // 3. Show success message on screen and hide form
+      formContainer.style.display = 'none';
+      successMsg.style.display = 'block';
       form.reset();
       
       // Optional: await n8n just to catch errors in console, but it won't block UI
