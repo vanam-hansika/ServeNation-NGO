@@ -43,67 +43,7 @@ logoutBtn.addEventListener('click', async () => {
   }
 });
 
-// Image Upload Elements
-const uploadForm = document.getElementById('uploadForm');
-const imageUpload = document.getElementById('imageUpload');
-const uploadBtn = document.getElementById('uploadBtn');
-const uploadStatus = document.getElementById('uploadStatus');
-
-// 3. Image Upload Logic
-if (uploadForm) {
-  uploadForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const file = imageUpload.files[0];
-    if (!file) return;
-
-    // Validate file type
-    if (!['image/jpeg', 'image/png'].includes(file.type)) {
-      uploadStatus.textContent = '❌ Please select a JPG or PNG image.';
-      uploadStatus.style.color = 'var(--orange-dark)';
-      uploadStatus.style.display = 'block';
-      return;
-    }
-
-    uploadBtn.disabled = true;
-    uploadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Uploading...';
-    uploadStatus.style.display = 'none';
-
-    try {
-      // Import storage specifics inline or assume exported from firebase.js
-      const { storage, ref, uploadBytesResumable, getDownloadURL, addDoc, serverTimestamp } = await import('./firebase.js');
-
-      // Unique filename
-      const fileName = `${Date.now()}_${file.name.replace(/\s+/g, '_')}`;
-      const storageRef = ref(storage, `gallery/${fileName}`);
-
-      // Upload to Storage
-      const snapshot = await uploadBytesResumable(storageRef, file);
-      const downloadURL = await getDownloadURL(snapshot.ref);
-
-      // Save to Firestore
-      await addDoc(collection(db, "gallery"), {
-        imageUrl: downloadURL,
-        createdAt: serverTimestamp()
-      });
-
-      uploadStatus.textContent = '✅ Image uploaded to gallery successfully!';
-      uploadStatus.style.color = 'green';
-      uploadStatus.style.display = 'block';
-      uploadForm.reset();
-
-    } catch (err) {
-      console.error('Upload Error:', err);
-      uploadStatus.textContent = '❌ Failed to upload image.';
-      uploadStatus.style.color = 'var(--orange-dark)';
-      uploadStatus.style.display = 'block';
-    } finally {
-      uploadBtn.disabled = false;
-      uploadBtn.innerHTML = '<i class="fas fa-upload"></i> Upload Image';
-    }
-  });
-}
-
-// 4. Data Fetching
+// 3. Data Fetching
 async function loadVolunteers() {
   if (!db) {
     console.error("❌ Firestore DB not initialized.");
