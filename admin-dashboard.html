@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — ServeNation NGO</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <style>
+    body { background: var(--gray-50); min-height: 100vh; }
+    .dashboard-header {
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      padding: var(--space-4) 0;
+      margin-bottom: var(--space-8);
+    }
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .admin-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      color: var(--gray-900);
+      font-size: var(--text-xl);
+      font-weight: 700;
+    }
+    .table-container {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th, td {
+      padding: var(--space-4);
+      border-bottom: 1px solid var(--gray-100);
+    }
+    th {
+      background: var(--gray-50);
+      font-weight: 600;
+      color: var(--gray-600);
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover { background: var(--gray-50); }
+    
+    .loading-state {
+      padding: var(--space-12);
+      text-align: center;
+      color: var(--gray-500);
+      font-size: var(--text-lg);
+    }
+    
+    .badge-area {
+      display: inline-block;
+      padding: var(--space-1) var(--space-2);
+      background: var(--green-50);
+      color: var(--green-700);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 600;
+    }
+    
+    /* Just to prevent flash of content before JS auth check */
+    #dashboardContent { display: none; }
+  </style>
+</head>
+<body>
+
+  <div id="dashboardContent">
+    <header class="dashboard-header">
+      <div class="container header-content">
+        <div class="admin-title">
+          <i class="fas fa-shield-alt" style="color: var(--green-600);"></i> Admin Dashboard
+        </div>
+        <button id="logoutBtn" class="btn btn-secondary">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+      </div>
+    </header>
+
+    <main class="container">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-4);">
+        <h2 style="font-size: var(--text-2xl);">Volunteer Registrations</h2>
+        <span id="totalBadge" class="badge-area" style="font-size: var(--text-sm);">Total: 0</span>
+      </div>
+
+      <div class="table-container">
+        <div id="loadingIndicator" class="loading-state">
+          <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: var(--space-3); color: var(--green-500);"></i>
+          <p>Fetching volunteers from database...</p>
+        </div>
+        <div id="errorIndicator" class="loading-state" style="display:none; color: var(--orange-dark);">
+          <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: var(--space-3);"></i>
+          <p>Failed to load data. Please try again later.</p>
+        </div>
+        <table id="volunteersTable" style="display:none;">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Mobile</th>
+              <th>Area of Interest</th>
+              <th>About</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <!-- Data injected via JS -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="admin-dashboard.js" type="module"></script>
+</body>
+</html>

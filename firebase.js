@@ -8,7 +8,7 @@
 // ================================================
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
-import { getFirestore, collection, addDoc, serverTimestamp }
+import { getFirestore, collection, addDoc, serverTimestamp, getDocs, orderBy, query }
   from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
 
 // -------------------------------------------------------------------
@@ -25,7 +25,10 @@ const firebaseConfig = {
 };
 // -------------------------------------------------------------------
 
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+
 let db = null;
+let auth = null;
 let firebaseEnabled = false;
 
 if (firebaseConfig.apiKey === "YOUR_API_KEY") {
@@ -34,12 +37,15 @@ if (firebaseConfig.apiKey === "YOUR_API_KEY") {
   try {
     const app = initializeApp(firebaseConfig);
     db = getFirestore(app);
+    auth = getAuth(app);
     firebaseEnabled = true;
     console.log("✅ Firebase connected successfully.");
   } catch (err) {
     console.warn("⚠️  Firebase connection error. Data will not be saved to Firestore.", err.message);
   }
 }
+
+export { db, auth, signInWithEmailAndPassword, onAuthStateChanged, signOut, collection, getDocs, query, orderBy };
 
 /**
  * Save a volunteer registration to Firestore.
